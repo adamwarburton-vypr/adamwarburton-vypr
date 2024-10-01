@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vypr Companion AI Tool</title>
+</head>
+<body>
+    <!-- Pickaxe Embed Code Start -->
+    <script>
+        window.PICKAXE = window.PICKAXE || {
+            pickaxes: [],
+            style: "kHsjoCQGgI0GWASmgIdIAyCCAwwrA6GAIwQEKBgNQfAeDEAwBVeBNuIGARgAVaChbIInigx+ODAVIAPZgFxmCOoICIGgPhmBYBoCfvgNPSCKSoEAEwJAKgQAPAEesAnwCNVgFvBAAAWBiAMCIdIETRwAQigXYxAuHyA3z8A5ZIELaQJUQgC6TAJ3CAHB8BVu4DUKwFNHgMQiAMIA9DwB96gBInABREA7QEIxgImGgFUegB9dgAYpgAQRACWAAASAHn2AADmAI3iAjoyAkAiAkwSAlTCAABCAlzeAmQSAnZuAVRKAo6aACx6AOh+AuQiAlJKAAD2AtTWAnLeAu56ABL2AmwyAvyOAw8GAxa6AyBGAtoqAy5qAvLqAz6SAqBWAwtOAr62AiLGAytqAoLmAIc6AJUCABtCABiOApgqAZewAcYAhQoApXoARIQBsgOgBgNDygIvigIABgAoQgMAsgOCjgKtCgBUUgDwOQDAAoBw+kAAoSAABhACqEgGRCQAw8IAD6UASRiAQmVAAD4gFegESAIczAErggEy6QBoUIAAkMAFImAABLAAIggAJoQDABoAFSkAHoCAVSdAAQ0gANgQCMHIAnhUARGSARE5AKdlgFAnwBTJoAIe0AgAOAEvNAAMQgHEDQC00IBKfMAz+eAKb/AEKJgDmIQCcFIAXTUAujCAKC5AKBYgB7vQAAT4B1RkALdqAeDnAIMCgB1GwAdPIBAAUACHOAZyBAI2hgG28QCYMoAg/cADAGACQsAA+ALhdAELmgCZNQAU/4B2NkAS8KAVkFAJ25gEudwBhKYACkEAul+AdbtAB6GgGKOwC7HoBXIkAHQ+ATetAAL5gEQNQBOEoADUcAb9eAJKVAC2agBuLQAE9oBLycAEoeAXK1APCmgCLqQCMK4AHpsAADyAIglAFWogGJvQAdwIB508AOUCAcsJAJkZgDObwAgJ4A6TUAs1+AYETAPglgBNQQCKQ4A3mkA/EGAajXABDjAAvANBjgE9awAxokADgRAATFQBAD8AN7xAH6JwAAPUAAyBAEJfwBF8gAFcAZzhABMcwA3DMANOxAAojQAAAKAA="
+        };
+        window.PICKAXE.pickaxes.push({
+            id: "Vypr_Companion_5DUTM",
+            type: "inline"
+        });
+        const { id: _fid } = window.PICKAXE.pickaxes[0];
+        fetch(`https://embed.pickaxeproject.com/axe/api/script/${_fid}`)
+            .then((e) => e.json())
+            .then(({ v: e }) => {
+                const t = `https://cdn.jsdelivr.net/gh/pickaxeproject/cdn@${e}/dist`;
+                if (!document.querySelector(`script[src="${t}/bundle.js"]`)) {
+                    const e = document.createElement("script");
+                    e.src = t + "/bundle.js";
+                    e.defer = true;
+                    document.head.appendChild(e);
+                }
+                if (!document.querySelector(`link[href="${t}/styles.css"]`)) {
+                    const e = document.createElement("link");
+                    e.href = t + "/styles.css";
+                    e.rel = "stylesheet";
+                    e.type = "text/css";
+                    document.head.appendChild(e);
+                }
+            });
+    </script>
+    </script>
+    <div id="Vypr_Companion_5DUTM"></div>
+    <!-- Pickaxe Embed Code End -->
+</body>
+</html>
