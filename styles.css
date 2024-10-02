@@ -73,11 +73,17 @@ footer .feedback a:hover {
     text-decoration: underline;
 }
 
-/* Embed Wrapper Styling */
+/* Embed Wrapper Styling for iframe */
 .embed-wrapper {
-    max-width: 800px; /* Adjust as needed */
+    max-width: 800px;
     width: 100%;
     margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
+  }
+  
+  /* Optional: Adjust iframe height for responsiveness */
+  .embed-wrapper iframe {
+    width: 100%;
+    height: 600px; /* Adjust as needed */
   }
