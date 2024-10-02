@@ -72,3 +72,12 @@ footer .feedback a {
 footer .feedback a:hover {
     text-decoration: underline;
 }
+
+/* Embed Wrapper Styling */
+.embed-wrapper {
+    max-width: 800px; /* Adjust as needed */
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+  }
