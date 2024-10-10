@@ -1,40 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Vypr Companion AI Tool - Analyse</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>Vypr Analyse</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Include EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function(){
+        emailjs.init('lgCM4gnIt8OpT7Oqt'); // Your Public Key
+    })();
+  </script>
+  <style>
+    /* Left-align form labels */
+    .form-group label {
+      text-align: left;
+      display: block;
+      margin-bottom: 5px;
+    }
+    /* Ensure all input fields and textarea have consistent styling */
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+    /* Optional: Style the file input */
+    .form-group input[type="file"] {
+      padding: 0;
+    }
+    /* Style the buttons */
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #000; /* Black background */
+      color: #fff; /* White text */
+      text-decoration: none;
+      border: 2px solid #fff; /* White border */
+      cursor: pointer;
+      margin-top: 10px;
+      border-radius: 4px;
+    }
+    .button:hover {
+      background-color: #fff; /* White background on hover */
+      color: #000; /* Black text on hover */
+    }
+  </style>
 </head>
 <body>
-    <!-- Header Section Start -->
-    <header>
-        <div class="logo">
-            <img src="logo.png" alt="Vypr Logo">
-        </div>
-        <div class="go-to-vypr">
-            <a href="https://app.vypr.it" target="_blank">Go to Vypr</a>
-        </div>
-    </header>
-    <!-- Header Section End -->
-
-
-<!-- Main Content Start -->
-<main>
-    <div class="content">
-      <p>This is the Vypr Analyse page. Content coming soon.</p>
+  <!-- Header Section Start -->
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Vypr Logo">
     </div>
-</main>
+    <div class="go-to-vypr">
+      <a href="https://app.vypr.it" target="_blank">Go to Vypr</a>
+    </div>
+  </header>
+  <!-- Header Section End -->
+
+  <!-- Main Content Start -->
+  <main>
+    <div class="content">
+      <p id="intro-text">
+        Vypr Analyse is a state-of-the-art AI tool to analyze steer results and garner insights to supercharge your business. If you upload your steer results using the functionality below, our AI will analyze them and email you results back within 48 hours.
+      </p>
+      <form id="analyse-form" enctype="multipart/form-data">
+        <!-- Full Name Input -->
+        <div class="form-group">
+          <label for="full-name">Full Name<span class="required">*</span></label>
+          <input type="text" id="full-name" name="full_name" required>
+        </div>
+        <!-- Company Name Input -->
+        <div class="form-group">
+          <label for="company-name">Company Name<span class="required">*</span></label>
+          <input type="text" id="company-name" name="company_name" required>
+        </div>
+        <!-- Email Input -->
+        <div class="form-group">
+          <label for="email">Email Address<span class="required">*</span></label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <!-- AI Guidance Input -->
+        <div class="form-group">
+          <label for="guidance">AI Guidance</label>
+          <textarea id="guidance" name="guidance" placeholder="Tell our AI what to look for in your results—any specific focus areas or things you're looking to learn"></textarea>
+        </div>
+        <!-- File Upload Input -->
+        <div class="form-group">
+          <label for="attachments">Upload Your Steer Results<span class="required">*</span></label>
+          <input type="file" id="attachments" name="attachments" accept=".pdf,.doc,.docx,.xls,.xlsx,.csv" multiple required>
+        </div>
+        <!-- Submit Button -->
+        <button type="submit" class="button" id="submit-button">Submit</button>
+      </form>
+    </div>
+  </main>
   <!-- Main Content End -->
 
-
-
-<!-- Footer Start -->
-<footer>
+  <!-- Footer Start -->
+  <footer>
     <div class="feedback">
-        <a href="mailto:adam.warburton@vyprco.com">Feedback</a>
+      <a href="mailto:adam.warburton@vyprco.com">Feedback</a>
     </div>
-</footer>
-<!-- Footer End -->
+  </footer>
+  <!-- Footer End -->
 
+  <!-- Form Submission Script -->
+  <script type="text/javascript">
+    document.getElementById('analyse-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Simple email validation
+      const email = document.getElementById('email').value;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+
+      // Send email using EmailJS
+      emailjs.sendForm('service_1pq5kng', 'template_1panvdc', this)
+        .then(function(response) {
+          console.log('SUCCESS!', response.status, response.text);
+          // Replace body copy and form with thank-you message and button
+          document.getElementById('intro-text').style.display = 'none';
+          document.getElementById('analyse-form').style.display = 'none';
+          const contentDiv = document.querySelector('.content');
+
+          const thankYouMessage = document.createElement('div');
+          thankYouMessage.className = 'thank-you-message';
+          thankYouMessage.innerHTML = `
+            <p>Thank you for using Vypr Analyse. Our AI is already busy crunching the numbers and will email you your results within 48 hours.</p>
+          `;
+          contentDiv.appendChild(thankYouMessage);
+
+          // Add 'Go back' button
+          const goBackButton = document.createElement('a');
+          goBackButton.href = '/complete';
+          goBackButton.className = 'button';
+          goBackButton.innerText = 'Go back';
+          contentDiv.appendChild(goBackButton);
+        }, function(error) {
+          console.log('FAILED...', error);
+          alert('An error occurred while submitting the form. Please try again later.');
+        });
+    });
+  </script>
 </body>
 </html>
