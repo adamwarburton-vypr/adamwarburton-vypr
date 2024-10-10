@@ -1,89 +1,128 @@
+/* styles.css */
+
+/* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Libre+Baskerville&display=swap');
-/* Set background color to black and font color to white */
+
+/* Global Styles */
 body {
-    background-color: #000000;
-    color: #ffffff;
-    margin: 0;
-    padding: 0;
-  }
-  /* Headings use Libre Baskerville font */
+  background-color: #000000;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  font-family: 'DM Sans', sans-serif;
+}
+
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Libre Baskerville', serif;
-  }
-  
-  /* Body text, labels, buttons use DM Sans font */
-  body, p, label, button, input, textarea {
-    font-family: 'DM Sans', sans-serif;
-  }
-  /* Header styling */
+  font-family: 'Libre Baskerville', serif;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Header Styling */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
 }
 
-/* Logo styling */
 header .logo img {
-    max-height: 60px;
+  max-height: 60px;
 }
 
-/* "Go to Vypr" link styling */
 header .go-to-vypr a {
-    color: #ffffff;
-    text-decoration: none;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 16px;
+  font-size: 16px;
 }
 
 header .go-to-vypr a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
-/* Main content styling */
+
+/* Main Content Styling */
 main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: calc(100vh - 140px); /* Adjust based on header/footer height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 140px); /* Adjust based on header and footer height */
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-/* Embed container styling */
-.embed-container {
-    width: 100%;
-    max-width: 800px;
-    padding: 20px;
+main .content {
+  max-width: 800px;
+  width: 100%;
 }
-/* Footer styling */
+
+main .content p {
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+/* Button Styling */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-family: 'DM Sans', sans-serif;
+  color: #ffffff;
+  background-color: #000000;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Footer Styling */
 footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    padding: 20px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 20px;
 }
 
-/* Feedback link styling */
 footer .feedback a {
-    color: #ffffff;
-    text-decoration: none;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
+  font-size: 14px;
 }
 
 footer .feedback a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-/* Embed Wrapper Styling for iframe */
-.embed-wrapper {
-    max-width: 800px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
+/* Responsive Design */
+@media (max-width: 600px) {
+  main .content p {
+    font-size: 20px;
   }
-  
-  /* Optional: Adjust iframe height for responsiveness */
-  .embed-wrapper iframe {
-    width: 100%;
-    height: 600px; /* Adjust as needed */
+
+  .button {
+    padding: 12px 24px;
+    font-size: 16px;
   }
+
+  .button-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  footer {
+    position: static;
+    text-align: center;
+    width: 100%;
+  }
+}
