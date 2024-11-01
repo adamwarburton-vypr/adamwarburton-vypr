@@ -243,3 +243,17 @@ footer .feedback a:hover {
     background-color: #fff; /* White background on hover */
     color: #000; /* Black text on hover */
   }
+
+  /* Style for the file list */
+#file-list {
+    margin-top: 10px;
+    color: #ffffff;
+    text-align: left;
+  }
+  #file-list ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  #file-list li {
+    margin-bottom: 5px;
+  }

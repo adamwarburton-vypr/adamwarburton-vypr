@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Vypr Analyse</title>
+  <!-- Include Stylesheet -->
   <link rel="stylesheet" href="styles.css">
   <!-- Include EmailJS SDK -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
@@ -28,6 +29,7 @@
     /* Optional: Style the file input */
     .form-group input[type="file"] {
       padding: 0;
+      margin-bottom: 10px;
     }
     /* Style the buttons */
     .button {
@@ -44,6 +46,10 @@
     .button:hover {
       background-color: #fff; /* White background on hover */
       color: #000; /* Black text on hover */
+    }
+    /* Hide the file list */
+    #file-list {
+      display: none;
     }
   </style>
 </head>
@@ -63,7 +69,7 @@
   <main>
     <div class="content">
       <p id="intro-text">
-        Vypr Analyse is a state-of-the-art AI tool to analyze steer results and garner insights to supercharge your business. If you upload your steer results using the functionality below, our AI will analyze them and email you results back within 48 hours.
+        Vypr Analyse takes your steer results and returns a detailed analysis to help garner insights and supercharge your business. By filling out the fields below and attaching your steer results, Vypr Analyse will return your results by email within 48 hours.
       </p>
       <form id="analyse-form" enctype="multipart/form-data">
         <!-- Full Name Input -->
@@ -86,10 +92,14 @@
           <label for="guidance">AI Guidance</label>
           <textarea id="guidance" name="guidance" placeholder="Tell our AI what to look for in your results—any specific focus areas or things you're looking to learn"></textarea>
         </div>
-        <!-- File Upload Input -->
+        <!-- File Upload Inputs -->
         <div class="form-group">
-          <label for="attachments">Upload Your Steer Results<span class="required">*</span></label>
-          <input type="file" id="attachments" name="attachments" accept=".pdf,.doc,.docx,.xls,.xlsx,.csv" multiple required>
+          <label>Upload Your Steer Results (You can select up to 5 files)<span class="required">*</span></label>
+          <input type="file" id="my_file1" name="my_file1" accept=".pdf,.doc,.docx,.xls,.xlsx,.csv" required>
+          <input type="file" id="my_file2" name="my_file2" accept=".pdf,.doc,.docx,.xls,.xlsx,.csv">
+          <input type="file" id="my_file3" name="my_file3" accept=".pdf,.doc,.docx,.xls,.xlsx,.csv">
+          <input type="file" id="my_file4" name="my_file4" accept=".pdf,.doc,.docx,.xls,.xlsx,.csv">
+          <input type="file" id="my_file5" name="my_file5" accept=".pdf,.doc,.docx,.xls,.xlsx,.csv">
         </div>
         <!-- Submit Button -->
         <button type="submit" class="button" id="submit-button">Submit</button>
@@ -101,7 +111,7 @@
   <!-- Footer Start -->
   <footer>
     <div class="feedback">
-      <a href="mailto:adam.warburton@vyprco.com">Feedback</a>
+      <a href="mailto:scott.naylor@vyprco.com">Feedback</a>
     </div>
   </footer>
   <!-- Footer End -->
